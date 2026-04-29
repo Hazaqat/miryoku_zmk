@@ -1,6 +1,6 @@
 # Copyright 2021 Manna Harbour
 # https://github.com/manna-harbour/miryoku
-FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true
+
 name: 'Main'
 on:
   workflow_call:
@@ -49,6 +49,8 @@ on:
 jobs:
   main:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     container:
       image: zmkfirmware/zmk-build-arm:stable
     strategy:
