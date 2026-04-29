@@ -49,8 +49,6 @@ on:
 jobs:
   main:
     runs-on: ubuntu-latest
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     container:
       image: zmkfirmware/zmk-build-arm:stable
     strategy:
@@ -71,6 +69,7 @@ jobs:
         modules: ${{ fromJSON(inputs.modules) }}
     env:
       MIRYOKU_DEBUG: ${{ secrets.MIRYOKU_DEBUG }}
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - name: checkout
         uses: actions/checkout@v4
